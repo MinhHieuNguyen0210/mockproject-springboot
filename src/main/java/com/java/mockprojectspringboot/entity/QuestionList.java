@@ -7,10 +7,6 @@ import java.util.List;
 @Component
 public class QuestionList {
 
-    public QuestionList(List<Question> questions) {
-        this.questions = questions;
-    }
-
     private List<Question> questions;
 
     public List<Question> getQuestions() {
@@ -18,6 +14,10 @@ public class QuestionList {
     }
 
     public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public QuestionList(List<Question> questions) {
         this.questions = questions;
     }
 }
