@@ -27,6 +27,7 @@ public class Question {
     private int ans;
     private int chose;
 
+
     @Override
     public String toString() {
         return "Question [quesId=" + quesId + ", title=" + title + ", optionA=" + optionA + ", optionB=" + optionB + ", optionC=" + optionC + ", ans=" + ans + ", chose=" + chose + "]";

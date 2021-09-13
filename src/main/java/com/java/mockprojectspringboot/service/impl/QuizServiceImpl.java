@@ -45,9 +45,6 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public Long getUserResult(QuestionList questionList) {
-//        for(Question question: questionList.getQuestions())
-//            if(question.getAns() == question.getChose())
-//                correct++;
         long numberOfCorrect = questionList.getQuestions()
                 .stream()
                 .filter(item -> item.getChose() == item.getAns())
