@@ -7,7 +7,18 @@ import com.java.mockprojectspringboot.entity.Category;
 
 public interface CateService {
 	
-	List<Category> findAll();
+	List<Category> getCate();
 
 	Optional<Category> findById(int id);
+	
+	Category getCateByName(String name);
+	
+	Category saveCate(Category cate);
+	
+	void addCate(Category cate);
+	
+	Category updateCate(Category cate);
+	
+	void deleteCate(int id);
+	
 }

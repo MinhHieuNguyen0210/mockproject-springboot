@@ -8,18 +8,28 @@ body {
 	width: 100%;
 	overflow-x: hidden;
 }
-
 .main-container {
 	min-height: calc(100vh - 136px);
+	width: 800px;
+	margin-top: 60px;
+}
+
+.score-title{
+	background: orange;
+	color: #fff;
+	margin-bottom: 16px;
+	font-size: 30px;
+	padding: 10px;
 }
 
 table {
+	background: #aa43cc;
 	width: 100%;
 	text-align: center;
 }
 
 tr {
-	border: 1px solid white;
+	border-bottom: 4px solid white;
 }
 
 th, td {
@@ -27,6 +37,7 @@ th, td {
 }
 
 footer {
+	background: #e6c3f5;
 	height: 80px;
 	text-align: center;
 	line-height: 80px;

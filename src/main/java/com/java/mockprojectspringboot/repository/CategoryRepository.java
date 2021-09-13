@@ -7,4 +7,7 @@ import com.java.mockprojectspringboot.entity.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
+
+	Category getByName(String name);
+
 }

@@ -16,9 +16,13 @@ public class CateServiceImpl implements CateService{
 	@Autowired
 	CategoryRepository cateRepo;
 	
+	@Override
+	public Category saveCate(Category cate) {
+		return cateRepo.save(cate);
+	}
 	
 	@Override
-	public List<Category> findAll() {
+	public List<Category> getCate() {
 		return cateRepo.findAll();
 	}
 
@@ -27,4 +31,30 @@ public class CateServiceImpl implements CateService{
 	public Optional<Category> findById(int id) {
 		return cateRepo.findById(id);
 	}
+
+	@Override
+	public Category getCateByName(String name) {
+		return cateRepo.getByName(name);
+	}
+
+
+	@Override
+	public void addCate(Category cate) {
+		cateRepo.save(cate);
+	}
+
+
+	@Override
+	public Category updateCate(Category cate) {
+		Category existCate = cateRepo.findById(cate.getId()).orElse(null);
+		existCate.setName(cate.getName());
+		return cateRepo.save(existCate);
+	}
+
+	@Override
+	public void deleteCate(int id) {
+		cateRepo.deleteById(id);
+	}
+
+
 }
