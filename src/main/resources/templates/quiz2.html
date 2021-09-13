@@ -8,6 +8,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" th:href="@{/css/quiz.css}"/>
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/>
@@ -17,6 +18,7 @@
 <body>
 <!-- Importing NavBar -->
 <div th:insert="navbar.html :: navbar"></div>
+
 <div class="wrapper">
     <form action="submit" method="POST" th:object=${questionList2}>
         <div th:each="ques, i:${questionList2.questions}">
