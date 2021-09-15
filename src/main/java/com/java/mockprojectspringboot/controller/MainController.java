@@ -14,7 +14,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.*;
+
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -45,6 +53,7 @@ public class MainController {
         return userResult;
     }
 
+
 	@GetMapping("/")
 	public String home(Model model) {
 		List<Category> listCate = cateService.findAll();
@@ -60,10 +69,10 @@ public class MainController {
 		return "index.html";
 	}
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 
     @GetMapping("/categories")
 	public String category(Model model){
@@ -86,7 +95,8 @@ public class MainController {
 	}
 	@PostMapping("/question/{id}")
 	public String createQuestion(@ModelAttribute("question") Question question, @PathVariable(value = "id") String idCate){
-		System.out.println(idCate);
+	System.out.println(idCate);
+    	//    	question.getCate().setId(idCate);
 //		System.out.println(question.getCate().getId());
 		System.out.println(question.getTitle());
 		System.out.println(question.getOptionA());
@@ -100,18 +110,18 @@ public class MainController {
 //            redirectAttributes.addFlashAttribute("warning", "You must enter your name");
 //            return "redirect:/";
 //        }
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = authentication.getName();
-//        System.out.println(email);
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		System.out.println(email);
 
-        userResult = userRepository.findByEmail(email);
-        submitted = false;
+		userResult = userRepository.findByEmail(email);
+		submitted = false;
 
-        QuestionList questionList = quizService.getQuestions();
-        model.addAttribute("questionList", questionList);
+		QuestionList questionList = quizService.getQuestions();
+		model.addAttribute("questionList", questionList);
 
-        return "quiz.html";
-    }
+		return "quiz.html";
+	}
 
 
 	@GetMapping("/quizz")
@@ -124,9 +134,9 @@ public class MainController {
 		submitted = false;
 
 		Optional<Category> cate = cateService.findById(idCate);
-
+		
 		QuestionList questionList = quizService.getQuestionByCate(cate.get());
-
+	
 		model.addAttribute("questionList2", questionList);
 		return "quiz2";
 	}
@@ -138,16 +148,16 @@ public class MainController {
 			quizService.saveScore(userResult);
 			submitted = true;
 
-        }
-        return "result.html";
-    }
+		}
+		return "result.html";
+	}
 
-    @GetMapping("/score")
-    public String score(Model m) {
-        List<User> scoreList = quizService.getTopScore();
-        m.addAttribute("ScoreList", scoreList);
+	@GetMapping("/score")
+	public String score(Model m) {
+		List<User> scoreList = quizService.getTopScore();
+		m.addAttribute("ScoreList", scoreList);
 
-        return "scoreboard.html";
-    }
+		return "scoreboard.html";
+	}
 
 }
