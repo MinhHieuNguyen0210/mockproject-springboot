@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/quiz-create.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/>
+
+    <title>Quiz</title>
+</head>
+
+<body>
+<div class="bg">
+    <div class="bg_container">
+        <div class="body">
+            <div class="container">
+                <div class="question_editor">
+                    <div class="header">
+                        <div class="title">Add Question</div>
+                    </div>
+                    <form th:action="'/question/'+${param.id}" method="post" th:object="${question}">
+                        <div class="question_body">
+                            <input type="text" th:name="title" class="editor-label" placeholder="Write your question here">
+                            <div class="question_option">
+                                <button id="1" class="mark_option">
+                                    <i class="fas fa-check ">
+                                        <input id="input1" class="check-option" type="radio" name="gender" value="other"
+                                               hidden>
+                                    </i>
+
+                                </button>
+                                <input type="text" th:name="optionA" class="answer_option" placeholder="Answer option 1">
+                            </div>
+                            <div class="question_option">
+                                <button id="2" class="mark_option">
+                                    <i class="fas fa-check ">
+                                        <input id="input2" class="check-option" type="radio" name="gender" value="other"
+                                               hidden>
+                                    </i>
+                                </button>
+                                <input type="text" th:name="optionB" class="answer_option" placeholder="Answer option 2">
+                            </div>
+                            <div class="question_option">
+                                <button id="3" class="mark_option">
+                                    <i class="fas fa-check ">
+                                        <input id="input3" class="check-option" type="radio" name="gender" value="other"
+                                               hidden>
+                                    </i>
+                                </button>
+                                <input type="text" th:name="optionC"class="answer_option" placeholder="Answer option 3">
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="footer_inner">
+                                <button type="submit" class="save_btn">
+                                    <i class="fas fa-save"></i>
+                                    SAVE
+                                </button>
+                                <button class="cancel_btn">
+                                    <a th:href="@{/}">Cancel</a>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/script/quiz-create.js"></script>
+</body>
+
+</html>

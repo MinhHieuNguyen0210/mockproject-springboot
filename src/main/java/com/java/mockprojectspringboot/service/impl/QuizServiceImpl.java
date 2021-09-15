@@ -1,18 +1,22 @@
 package com.java.mockprojectspringboot.service.impl;
 
-import com.java.mockprojectspringboot.entity.Question;
-import com.java.mockprojectspringboot.entity.QuestionList;
-import com.java.mockprojectspringboot.entity.User;
-import com.java.mockprojectspringboot.repository.QuestionRepository;
-import com.java.mockprojectspringboot.repository.UserRepository;
-import com.java.mockprojectspringboot.service.QuizService;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import com.java.mockprojectspringboot.entity.Category;
+import com.java.mockprojectspringboot.entity.Question;
+import com.java.mockprojectspringboot.entity.QuestionList;
+import com.java.mockprojectspringboot.entity.User;
+import com.java.mockprojectspringboot.repository.CategoryRepository;
+import com.java.mockprojectspringboot.repository.QuestionRepository;
+import com.java.mockprojectspringboot.repository.UserRepository;
+import com.java.mockprojectspringboot.service.QuizService;
 
 @Service
 public class QuizServiceImpl implements QuizService {
@@ -26,6 +30,8 @@ public class QuizServiceImpl implements QuizService {
     User user;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    CategoryRepository cateRepo;
 
     @Override
     public QuestionList getQuestions() {
@@ -41,6 +47,11 @@ public class QuizServiceImpl implements QuizService {
         }
         questionList.setQuestions(qList);
         return questionList;
+    }
+
+    @Override
+    public void saveQuestion(Question question) {
+        questionRepository.save(question);
     }
 
     @Override
@@ -62,4 +73,15 @@ public class QuizServiceImpl implements QuizService {
         List<User> listTopScore = userRepository.findAll(Sort.by(Sort.Direction.DESC, "totalCorrect"));
         return listTopScore;
     }
+
+	@Override
+	public QuestionList getQuestionByCate(Category cate) {
+//		 List<Question> listQuesByCate = questionRepository.findByCate(cate);
+		questionList.setQuestions(questionRepository.findByCate(cate));
+//		 questionList.setQuestions(listQuesByCate);
+		return questionList;
+	}
+	//cho nay phai ko e dr a 
+
+	
 }

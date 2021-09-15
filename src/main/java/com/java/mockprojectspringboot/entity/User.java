@@ -21,7 +21,6 @@ public class User {
     private Integer id;
 
     @Column(name="user_name")
-
     private String username;
 
     private String email;

@@ -14,13 +14,34 @@ body {
 	/*display: grid;*/
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 1fr;
-	grid-template-areas: "image-box"
-						"text-box";
+	grid-template-areas: "image-box" "text-box";
 	row-gap: 50px;
 	column-gap: 50px;
-	width: 600px;
-	margin-top: 100px
+	width: 1200px;
+	margin-top: 60px;
 }
+.button-create {
+	position: absolute;
+	left: 80px;
+	display: block;
+	align-items: center;
+	background-color: #9465c6;
+	border-radius: 8px;
+	box-shadow: #6c4298 0px 2px 0px 0px;
+	color: #ffffff;
+	font-family: Open Sans;
+	font-weight: 600;
+	padding: 8px;
+	text-align: center;
+	width: 168px;
+	display: block;
+	text-decoration: none;
+}
+.button-create:hover{
+	color: #cccccc;
+
+}
+
 
 @media screen and (min-width:850px) {
 	.main-container {
@@ -32,23 +53,17 @@ body {
 
 .image-box {
 	grid-area: image-box;
+	width: 300px;
+	height: 150px;
+}
+.quiz-item{
 	display: flex;
+	flex-direction: column ;
 	justify-content: center;
 	align-items: center;
 }
 
-.image-box img {
-	width: 100%;
-	max-width: 450px;
-}
 
-.text-box {
-	grid-area: text-box;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
 
 .card {
 	width: 100%;

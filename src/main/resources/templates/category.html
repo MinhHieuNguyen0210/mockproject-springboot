@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assests/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/category.css}">
+
+    <title>Quiz</title>
+</head>
+
+<body>
+<div class=" bg">
+    <div class="bg_container">
+        <div class="body">
+            <div class="container">
+                <!-- Start banner -->
+                <div class="banner">
+                    <div class="banner_img"><img src="https://cf.quizizz.com/img/editor/createaquiz.png" alt="">
+                    </div>
+                    <div class="banner_title">
+                        Create a quiz
+                    </div>
+                </div>
+                <!-- End banner -->
+                <!-- Start form -->
+                <form action="/categories/create" method="post" th:object="${category}">
+                    <div class="form">
+                        <div class="form_quizName">
+                            <div class="quizName_input">
+                                <label>1. Name this quiz</label>
+                                <input type="text" th:name="name" id="name-input" placeholder="Quiz name">
+                            </div>
+                        </div>
+                        <div class="hr"></div>
+
+                        <div class="btn">
+                            <button class="cancel">
+                                <a class="cancel" th:href="@{/}">Cancel</a>
+                            </button>
+                            <button type="submit" class="next">
+                                Create
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
