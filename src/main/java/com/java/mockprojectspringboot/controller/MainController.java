@@ -86,8 +86,7 @@ public class MainController {
 	}
 	@PostMapping("/question/{id}")
 	public String createQuestion(@ModelAttribute("question") Question question, @PathVariable(value = "id") String idCate){
-	System.out.println(idCate);
-    	//    	question.getCate().setId(idCate);
+		System.out.println(idCate);
 //		System.out.println(question.getCate().getId());
 		System.out.println(question.getTitle());
 		System.out.println(question.getOptionA());
