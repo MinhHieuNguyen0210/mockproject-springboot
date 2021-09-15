@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: all 0.2s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.bg .bg_container {
+    top: 0px;
+    opacity: 1;
+    max-width: 480px;
+    border-radius: 8px;
+    width: 100%;
+    background-color: #fff;
+    margin: 20px auto;
+    position: relative;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+.bg .bg_container .body {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg .bg_container .body .container {
+    width: 480px;
+    border-radius: 8px;
+    background-color: white;
+    /* Banner */
+    /* Form */
+}
+.bg .bg_container .body .container .banner {
+    padding: 24px 32px 16px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bg .bg_container .body .container .banner .banner_img {
+    width: 48px;
+    margin-right: 16px;
+}
+.bg .bg_container .body .container .banner .banner_img img {
+    width: 100%;
+}
+.bg .bg_container .body .container .banner .banner_title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #292a3a;
+}
+.bg .bg_container .body .container .form {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 32px;
+}
+.bg .bg_container .body .container .form .form_quizName {
+    margin-bottom: 20px;
+}
+.bg .bg_container .body .container .form .form_quizName .quizName_input {
+    position: relative;
+    margin-bottom: 16px;
+}
+.bg
+.bg_container
+.body
+.container
+.form
+.form_quizName
+.quizName_input
+> label {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(41, 42, 58, 0.67);
+    margin-bottom: 2px;
+    display: block;
+}
+.bg
+.bg_container
+.body
+.container
+.form
+.form_quizName
+.quizName_input
+> input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: 16px;
+    padding: 0 16px;
+    color: #292a3a;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.bg
+.bg_container
+.body
+.container
+.form
+.form_quizName
+.quizName_input
+> input:focus {
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.33);
+}
+.bg .bg_container .body .container .form .hr {
+    margin: 0 32px 16px;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 1px;
+}
+.bg .bg_container .body .container .btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 24px 24px;
+}
+.bg .bg_container .body .container .btn .cancel {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #292a3a;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+}
+.bg .bg_container .body .container .btn .next {
+    background-color: #00c985;
+    color: #fff;
+    margin-left: 16px;
+    min-width: 134px;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.1s ease-in-out;
+}
+
+/*# sourceMappingURL=quiz.css.map */

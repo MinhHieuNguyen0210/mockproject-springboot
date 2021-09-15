@@ -1,18 +1,26 @@
 package com.java.mockprojectspringboot.controller;
 
+import com.java.mockprojectspringboot.entity.Category;
+import com.java.mockprojectspringboot.entity.Question;
 import com.java.mockprojectspringboot.entity.QuestionList;
 import com.java.mockprojectspringboot.entity.User;
+import com.java.mockprojectspringboot.repository.CategoryRepository;
 import com.java.mockprojectspringboot.repository.UserRepository;
+import com.java.mockprojectspringboot.service.CateService;
 import com.java.mockprojectspringboot.service.QuizService;
+import com.java.mockprojectspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class MainController {
@@ -22,34 +30,80 @@ public class MainController {
     @Autowired
     QuizService quizService;
 
-    @Autowired
-    UserRepository userRepository;
-    Boolean submitted = false;
+	@Autowired
+	CateService cateService;
+
+	@Autowired
+	UserRepository userRepository;
+	Boolean submitted = false;
+
+	@Autowired
+    UserService userService;
 
     @ModelAttribute("result")
     public User getUserResult() {
         return userResult;
     }
 
-    @GetMapping("/")
-    public String home() {
-        return "index.html";
-    }
+	@GetMapping("/")
+	public String home(Model model) {
+		List<Category> listCate = cateService.findAll();
+		model.addAttribute("ListCate", listCate);
+
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email = auth.getName();
+		User user = new User();
+
+		user = userService.findUserByEmail(email);
+		model.addAttribute("UserName",user.getUsername());
+
+		return "index.html";
+	}
 
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
+    @GetMapping("/categories")
+	public String category(Model model){
+    	model.addAttribute("category", new Category());
+
+
+    	return "category";}
+
+	@PostMapping("/categories/create")
+	public ModelAndView createCategory(@ModelAttribute("category") Category category){
+		cateService.createCategory(category);
+
+		return new ModelAndView("redirect:/question?id="+category.getId());
+	}
+
+	@GetMapping ("/question")
+	public String viewQuestionCreate(Model model){
+    	model.addAttribute("question", new Question());
+    	return "quiz-create";
+	}
+	@PostMapping("/question/{id}")
+	public String createQuestion(@ModelAttribute("question") Question question, @PathVariable(value = "id") String idCate){
+	System.out.println(idCate);
+    	//    	question.getCate().setId(idCate);
+//		System.out.println(question.getCate().getId());
+		System.out.println(question.getTitle());
+		System.out.println(question.getOptionA());
+//    	quizService.saveQuestion(question);
+    	return "index.html";
+	}
+
     @PostMapping("/quiz")
-    public String quiz(Model model, RedirectAttributes redirectAttributes ) {
+    public String quiz( Model model, RedirectAttributes redirectAttributes) {
 //        if (username.equals("")) {
 //            redirectAttributes.addFlashAttribute("warning", "You must enter your name");
 //            return "redirect:/";
 //        }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
-        System.out.println(email);
+//        System.out.println(email);
 
         userResult = userRepository.findByEmail(email);
         submitted = false;
@@ -60,13 +114,30 @@ public class MainController {
         return "quiz.html";
     }
 
-    @PostMapping("/submit")
-    public String submit(@ModelAttribute QuestionList questionList, Model model) {
-        if (!submitted) {
 
-            userResult.setTotalCorrect(quizService.getUserResult(questionList));
-            quizService.saveScore(userResult);
-            submitted = true;
+	@GetMapping("/quizz")
+	public String quizByCate(Model model, @RequestParam("id") int idCate) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String email = authentication.getName();
+		System.out.println(email);
+
+		userResult = userRepository.findByEmail(email);
+		submitted = false;
+
+		Optional<Category> cate = cateService.findById(idCate);
+
+		QuestionList questionList = quizService.getQuestionByCate(cate.get());
+
+		model.addAttribute("questionList2", questionList);
+		return "quiz2";
+	}
+
+	@PostMapping("/submit")
+	public String submit(@ModelAttribute QuestionList questionList, Model model) {
+		if (!submitted) {
+			userResult.setTotalCorrect(quizService.getUserResult(questionList));
+			quizService.saveScore(userResult);
+			submitted = true;
 
         }
         return "result.html";

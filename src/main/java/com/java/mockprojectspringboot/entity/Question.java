@@ -27,6 +27,10 @@ public class Question {
     private int ans;
     private int chose;
 
+    @ManyToOne
+    @JoinColumn(name = "cate_id")
+    private Category cate;
+
 
     @Override
     public String toString() {
