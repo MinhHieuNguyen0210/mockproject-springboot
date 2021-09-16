@@ -94,14 +94,14 @@ public class MainController {
     	return "quiz-create";
 	}
 	@PostMapping("/question/{id}")
-	public String createQuestion(@ModelAttribute("question") Question question, @PathVariable(value = "id") String idCate){
-	System.out.println(idCate);
-    	//    	question.getCate().setId(idCate);
-//		System.out.println(question.getCate().getId());
-		System.out.println(question.getTitle());
-		System.out.println(question.getOptionA());
-//    	quizService.saveQuestion(question);
-    	return "index.html";
+	public ModelAndView createQuestion(@ModelAttribute("question") Question question, @PathVariable(value = "id") String idCate){
+		int id = Integer.parseInt(idCate);
+		Category category = new Category();
+		category.setId(id);
+    	question.setCate(category);
+
+   	quizService.saveQuestion(question);
+   	return new ModelAndView("redirect:/question?id="+question.getCate().getId());
 	}
 
     @PostMapping("/quiz")

@@ -25,7 +25,7 @@ public class Question {
     private String optionB;
     private String optionC;
     private int ans;
-    private int chose;
+    private int chose = -1;
 
     @ManyToOne
     @JoinColumn(name = "cate_id")

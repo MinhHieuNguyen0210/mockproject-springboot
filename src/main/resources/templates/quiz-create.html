@@ -23,34 +23,38 @@
                     </div>
                     <form th:action="'/question/'+${param.id}" method="post" th:object="${question}">
                         <div class="question_body">
-                            <input type="text" th:name="title" class="editor-label" placeholder="Write your question here">
+                            <input type="text" th:name="title" class="editor-label"
+                                   placeholder="Write your question here">
                             <div class="question_option">
-                                <button id="1" class="mark_option">
+                                <button type="button" id="1" class="mark_option">
                                     <i class="fas fa-check ">
-                                        <input id="input1" class="check-option" type="radio" name="gender" value="other"
+                                        <input id="input1" class="check-option" type="radio" value="1" th:field="*{ans}"
                                                hidden>
                                     </i>
 
                                 </button>
-                                <input type="text" th:name="optionA" class="answer_option" placeholder="Answer option 1">
+                                <input type="text" th:name="optionA" class="answer_option"
+                                       placeholder="Answer option 1">
                             </div>
                             <div class="question_option">
-                                <button id="2" class="mark_option">
+                                <button  type="button" id="2" class="mark_option">
                                     <i class="fas fa-check ">
-                                        <input id="input2" class="check-option" type="radio" name="gender" value="other"
+                                        <input id="input2" class="check-option" type="radio" value="2" th:field="*{ans}"
                                                hidden>
                                     </i>
                                 </button>
-                                <input type="text" th:name="optionB" class="answer_option" placeholder="Answer option 2">
+                                <input type="text" th:name="optionB" class="answer_option"
+                                       placeholder="Answer option 2">
                             </div>
                             <div class="question_option">
-                                <button id="3" class="mark_option">
+                                <button  type="button" id="3" class="mark_option">
                                     <i class="fas fa-check ">
-                                        <input id="input3" class="check-option" type="radio" name="gender" value="other"
+                                        <input id="input3" class="check-option" type="radio" value="3" th:field="*{ans}"
                                                hidden>
                                     </i>
                                 </button>
-                                <input type="text" th:name="optionC"class="answer_option" placeholder="Answer option 3">
+                                <input type="text" th:name="optionC" class="answer_option"
+                                       placeholder="Answer option 3">
                             </div>
                         </div>
                         <div class="footer">
