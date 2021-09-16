@@ -56,7 +56,7 @@ public class MainController {
 
 	@GetMapping("/")
 	public String home(Model model) {
-		List<Category> listCate = cateService.findAll();
+		List<Category> listCate = cateService.getCate();
 		model.addAttribute("ListCate", listCate);
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -112,6 +112,7 @@ public class MainController {
 //        }
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
+		
 		System.out.println(email);
 
 		userResult = userRepository.findByEmail(email);
@@ -126,6 +127,7 @@ public class MainController {
 
 	@GetMapping("/quizz")
 	public String quizByCate(Model model, @RequestParam("id") int idCate) {
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
 		System.out.println(email);

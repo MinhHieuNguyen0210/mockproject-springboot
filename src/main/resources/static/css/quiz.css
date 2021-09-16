@@ -4,15 +4,11 @@
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
 }
 
 body {
 	background: teal !important;
 	height: calc(100vh - 236px);
-}
-#navbarSupportedContent{
-	justify-content: right;
 }
 
 .wrapper {
@@ -24,6 +20,7 @@ body {
 	position: relative;
 	min-height: 400px;
 	overflow: hidden;
+	font-family: "Poppins", sans-serif;
 }
 
 .wrapper .wrap {
@@ -32,9 +29,7 @@ body {
 	left: 50px;
 	transition: 0.6s;
 }
-p{
-	width: 580px;
-}
+
 #q2,
 #q3,
 #q4,
@@ -48,6 +43,7 @@ p{
 .question-list {
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 16px;
 }
 label {
 	display: block;

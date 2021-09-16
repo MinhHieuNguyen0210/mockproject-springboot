@@ -30,7 +30,7 @@ class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.   csrf().disable().
                 authorizeRequests().
-                antMatchers( "/registration**","/quiz","/submit",
+                antMatchers( "/registration**","/quiz","/quizz","/submit",
                         "/js/**",
                         "/css/**",
                         "/img/**"

@@ -20,13 +20,14 @@
 
 	<!-- Main Container Start -->
 	<div class="main-container container py-5 px-4">
-		<h1 class="mb-5 text-center" th:text="'Welcome to Quiz App '+${UserName}"></h1>
+		<h1 class="home-title text-center">Welcome to Quiz App</h1>
+		<h1 class="mb-5 text-center" th:text="${UserName}"></h1>
 		<a class="button-create" th:href="@{/categories}"> Create</a>
 		<div class="row">
 			<div class="col col-4 mb-3 quiz-item" th:each="cate : ${ListCate}">
 					<img class="image-box"
 						src="./images/quiz1.png" />
-					<h2 class="quiz-title" th:text="${cate.name}"></h2>
+					<h3 class="quiz-title" th:text="${cate.name}"></h3>
 					<a th:href="@{/quizz?id={id}(id=${cate.id})}"
 						class="btn btn-warning">Start Quiz</a>
 
