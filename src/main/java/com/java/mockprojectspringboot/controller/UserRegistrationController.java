@@ -28,7 +28,7 @@ public class UserRegistrationController {
 
     @GetMapping
     public String showRegistrationForm() {
-        return "registration";
+        return "new-registration";
     }
 
     @PostMapping

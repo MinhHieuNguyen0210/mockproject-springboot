@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+body {
+    background-color: #461a42 !important;
+}
+body .bg {
+    position: absolute;
+    top: 25%;
+    left: 0%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body .bg .wrapper {
+    max-width: 1366px;
+    margin: -90px auto;
+}
+body .bg .wrapper .container {
+    background-color: white;
+    width: 400px;
+    border: white;
+    padding: 32px 40px;
+    width: 400px;
+    margin: 40px auto 16px;
+    border-radius: 8px;
+    background-color: #fff;
+    border-bottom: 4px solid #dadada;
+    position: relative;
+}
+body .bg .wrapper .container .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #424242;
+    text-align: center;
+}
+body .bg .wrapper .container img {
+    width: 200px;
+    position: relative;
+    left: 56px;
+}
+body .bg .wrapper .container .content {
+    margin-top: 20px;
+}
+body .bg .wrapper .container .content .username {
+    position: relative;
+}
+body .bg .wrapper .container .content .username .text-field {
+    position: relative;
+}
+body .bg .wrapper .container .content .username .text-field label {
+    font-size: 12px;
+    color: #6d6d6d;
+    display: block;
+    margin-bottom: 8px;
+}
+body .bg .wrapper .container .content .username .text-field .text-field-icon {
+    color: #8854c0;
+    display: inline-block;
+    position: absolute;
+    font-size: 16px;
+    left: 16px;
+    bottom: 8px;
+}
+body .bg .wrapper .container .content .username .text-field input {
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    color: #6d6d6d;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 16px;
+    padding-left: 48px;
+    outline: none;
+}
+body .bg .wrapper .container .content .password {
+    margin-top: 20px;
+    position: relative;
+}
+body .bg .wrapper .container .content .password .text-field-password {
+    position: relative;
+}
+body .bg .wrapper .container .content .password .text-field-password label {
+    font-size: 12px;
+    color: #6d6d6d;
+    display: block;
+    margin-bottom: 8px;
+}
+body
+.bg
+.wrapper
+.container
+.content
+.password
+.text-field-password
+.text-field-icon {
+    color: #8854c0;
+    display: inline-block;
+    position: absolute;
+    font-size: 16px;
+    left: 16px;
+    bottom: 8px;
+}
+body .bg .wrapper .container .content .password .text-field-password input {
+    display: block;
+    border-radius: 4px;
+    border: 1px solid #e5e5e5;
+    color: #6d6d6d;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 16px;
+    padding-left: 48px;
+    outline: none;
+}
+body .bg .wrapper .container .content .login {
+    box-shadow: 0px 4px 0px #7447a5;
+    display: block;
+    width: 100%;
+    margin-top: 24px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 600;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #8854c0;
+    color: #fff;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+body .bg .wrapper .container .content .signup {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #b6b6b6;
+}
+body .bg .wrapper .container .content .signup .signup-link {
+    color: #8854c0;
+    text-decoration: none;
+}
+
+/*# sourceMappingURL=quizSignUp.css.map */

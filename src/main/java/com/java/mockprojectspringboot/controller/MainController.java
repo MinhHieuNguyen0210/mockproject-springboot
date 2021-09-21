@@ -71,7 +71,7 @@ public class MainController {
 
 	@GetMapping("/login")
 	public String login() {
-		return "login";
+		return "new-login";
 	}
 
     @GetMapping("/categories")
@@ -112,8 +112,6 @@ public class MainController {
 //        }
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		String email = authentication.getName();
-		
-		System.out.println(email);
 
 		userResult = userRepository.findByEmail(email);
 		submitted = false;
@@ -147,6 +145,7 @@ public class MainController {
 	public String submit(@ModelAttribute QuestionList questionList, Model model) {
 		if (!submitted) {
 			userResult.setTotalCorrect(quizService.getUserResult(questionList));
+
 			quizService.saveScore(userResult);
 			submitted = true;
 

@@ -82,7 +82,7 @@ public class QuizServiceImpl implements QuizService {
 
 	@Override
 	public void saveQuestion(Question question) {
-
+		questionRepository.save(question);
 	}
 
 

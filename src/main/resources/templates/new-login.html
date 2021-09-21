@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous"/>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <title>Quiz</title>
+</head>
+
+<body>
+<div th:if="${param.error}">
+    <div class="alert alert-danger">Invalid username or
+        password.
+    </div>
+</div>
+<!-- logout message -->
+<div th:if="${param.logout}">
+    <div class="alert alert-info">You have been logged out.</div>
+</div>
+<div class="bg">
+    <!-- error message -->
+    <form th:action="@{/login}" method="post">
+
+        <div class="wrapper">
+            <div class="container">
+                <div class="title">
+                    Welcome to Quiz
+                </div>
+                <img src="https://canopylab.com/wp-content/uploads/2020/05/Working-with-adaptive-quizzes-A-beginners-guide.jpg"
+                     alt="">
+                <div class="content">
+                    <div class="username">
+                        <div class="text-field">
+                            <label for="text-field">Sign in with Email</label>
+                            <span class="text-field-icon">
+                                <i class="fas fa-user-check"></i>
+                            </span>
+                            <input type="text" id="text-field" placeholder="" name="username">
+                        </div>
+                    </div>
+                    <div class="password">
+                        <div class="text-field-password">
+                            <label for="text-field-password">Password</label>
+                            <span class="text-field-icon">
+                                <i class="fas fa-key"></i>
+                            </span>
+                            <input type="password" id="text-field-password" name="password">
+                        </div>
+                    </div>
+                    <button type="submit" class="login">
+                        Login
+                    </button>
+                    <div class="signup">
+                        <span>Don't have an account?</span>
+                        <a th:href="@{/registration}" class="signup-link">Sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+</body>
+
+</html>

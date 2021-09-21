@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/registration.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+          integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous"/>
+    <title>Quiz</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+
+<body>
+<!-- success message -->
+<div th:if="${param.success}">
+    <div class="alert alert-info">You've successfully registered
+        to our awesome app!
+    </div>
+</div>
+<div class="bg">
+    <div class="wrapper">
+        <form th:action="@{/registration}" method="post" th:object="${user}">
+            <div class="container">
+                <div class="title">
+                    Welcome to Quiz
+                </div>
+                <img src="https://canopylab.com/wp-content/uploads/2020/05/Working-with-adaptive-quizzes-A-beginners-guide.jpg"
+                     alt="">
+                <div class="content">
+                    <div class="username">
+                        <div class="text-field">
+                            <label for="text-field">Username</label>
+                            <span class="text-field-icon">
+                                <i class="fas fa-user-check"></i>
+                            </span>
+                            <input type="text" id="text-field" placeholder="" th:field="*{username}" required
+                                   autofocus="autofocus">
+                        </div>
+                    </div>
+                    <div class="password">
+                        <div class="text-field-password">
+                            <label for="text-field-email">Email</label>
+                            <span class="text-field-icon">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            <input type="email" id="text-field-email" placeholder="" th:field="*{email}" required
+                                   autofocus="autofocus">
+                        </div>
+                    </div>
+                    <div class="password">
+                        <div class="text-field-password">
+                            <label for="text-field-password">Password</label>
+                            <span class="text-field-icon">
+                                <i class="fas fa-key"></i>
+                            </span>
+                            <input type="password" id="text-field-password" th:field="*{password}" required
+                                   autofocus="autofocus">
+                        </div>
+                    </div>
+                    <button type="submit" class="login">
+                        <span>Sign Up</span>
+                    </button>
+                    <div class="signup">
+                        <span>Already have an account?</span>
+                        <a th:href="@{/login}" class="signup-link">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+
+</html>
